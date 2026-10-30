@@ -3,80 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Iglesia</title>
+    <title>Escuela de Adoradores</title>
     <style>
+        :root {
+            --primary: #FF6FA5;
+            --secondary: #6CE5B0;
+            --accent: #FFD97D;
+            --dark: #4A4A4A;
+            --light: #FFF8E7;
+            --white: #FFFFFF;
+        }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Comic Sans MS', 'Ubuntu', 'Segoe UI', sans-serif;
+            background-color: var(--secondary);
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
+            min-height: 100vh;
         }
         .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: var(--light);
+            padding: 30px;
+            border-radius: 40px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
             width: 100%;
             max-width: 500px;
+            border: 5px solid var(--white);
         }
         h1, h2 {
             text-align: center;
-            color: #333;
+            color: var(--dark);
+            text-shadow: 2px 2px 0 var(--white);
         }
-        .pantalla {
-            display: none;
-        }
-        .activa {
+        .icon {
+            font-size: 50px;
+            text-align: center;
             display: block;
+            margin-bottom: 10px;
         }
+        .pantalla { display: none; }
+        .activa { display: block; }
         button {
             width: 100%;
-            padding: 12px;
-            margin: 10px 0;
+            padding: 18px;
+            margin: 15px 0;
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 30px;
+            font-size: 20px;
             cursor: pointer;
-            background-color: #007bff;
-            color: white;
+            background-color: var(--primary);
+            color: var(--white);
             font-weight: bold;
+            box-shadow: 0 8px 0 #D4507D;
+            transition: transform 0.1s, box-shadow 0.1s;
         }
         button:hover {
-            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 0 #D4507D;
+        }
+        button:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 #D4507D;
         }
         .btn-atras {
-            background-color: #6c757d;
+            background-color: var(--dark);
+            box-shadow: 0 8px 0 #333333;
         }
-        .btn-atras:hover {
-            background-color: #5a6268;
-        }
+        .btn-atras:hover { box-shadow: 0 10px 0 #333333; }
+        .btn-atras:active { box-shadow: 0 4px 0 #333333; }
         input, select, textarea {
             width: 100%;
-            padding: 10px;
-            margin: 8px 0 15px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0 20px 0;
+            border: 3px solid var(--primary);
+            border-radius: 20px;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-family: inherit;
         }
         .registro-card {
-            background-color: #f9f9f9;
-            border-left: 4px solid #007bff;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 4px;
+            background-color: var(--white);
+            border-radius: 25px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 4px solid var(--secondary);
+            box-shadow: 5px 5px 0 #DDD;
         }
         .registro-card h4 {
             margin-top: 0;
-            color: #007bff;
+            color: var(--primary);
+            font-size: 22px;
         }
         .mensaje-error {
             color: red;
             text-align: center;
             display: none;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        label {
+            font-weight: bold;
+            color: var(--dark);
+            margin-left: 10px;
         }
     </style>
 </head>
@@ -86,14 +115,16 @@
     
     <!-- PANTALLA INICIO -->
     <div id="inicio" class="pantalla activa">
-        <h1>Bienvenido</h1>
-        <p style="text-align: center;">Selecciona tu rol para continuar:</p>
+        <span class="icon">🎨</span>
+        <h1>¡Bienvenidos!</h1>
+        <p style="text-align: center; font-size: 18px;">Selecciona tu rol para comenzar:</p>
         <button onclick="cambiarPantalla('maestro')">Maestro</button>
         <button onclick="cambiarPantalla('login-lider')">Líder</button>
     </div>
 
     <!-- PANTALLA LOGIN LÍDER -->
     <div id="login-lider" class="pantalla">
+        <span class="icon">🔑</span>
         <h2>Acceso Líder</h2>
         <p id="error-login" class="mensaje-error">Contraseña incorrecta</p>
         <label>Contraseña:</label>
@@ -104,13 +135,15 @@
 
     <!-- PANTALLA MAESTRO (FORMULARIO) -->
     <div id="maestro" class="pantalla">
+        <span class="icon">📝</span>
         <h2>Panel de Maestro</h2>
         
         <label>Ministerio / Grupo:</label>
         <select id="m-grupo">
             <option value="Semillas del Reino">Semillas del Reino</option>
             <option value="Exploradores">Exploradores</option>
-            <option value="Jóvenes">Jóvenes</option>
+            <option value="Vencedores">Vencedores</option>
+            <option value="Visionarios">Visionarios</option>
         </select>
 
         <label>Sub-grupo:</label>
@@ -125,14 +158,13 @@
             <option value="Domingo 2">Domingo 2</option>
             <option value="Domingo 3">Domingo 3</option>
             <option value="Domingo 4">Domingo 4</option>
-            <option value="Domingo 5">Domingo 5</option>
         </select>
 
         <label>¿Qué información o materiales piden?:</label>
-        <textarea id="m-peticion" rows="3" placeholder="Ej. Lápices, hojas, copias..."></textarea>
+        <textarea id="m-peticion" rows="3" placeholder="Ej. Lápices, hojas..."></textarea>
 
         <label>Lista de Asistencia:</label>
-        <textarea id="m-asistencia" rows="4" placeholder="Escribe aquí los nombres de los que asistieron..."></textarea>
+        <textarea id="m-asistencia" rows="4" placeholder="Escribe aquí los nombres de los asistentes..."></textarea>
 
         <button onclick="guardarDatos()">Guardar Información</button>
         <button class="btn-atras" onclick="cambiarPantalla('inicio')">Atrás</button>
@@ -140,14 +172,16 @@
 
     <!-- PANTALLA LÍDER (RESUMEN) -->
     <div id="lider" class="pantalla">
-        <h2>Panel de Líder (Resumen)</h2>
+        <span class="icon">📖</span>
+        <h2>Panel del Líder</h2>
         
         <label>Filtrar por Ministerio/Grupo:</label>
         <select id="l-grupo" onchange="mostrarResumen()">
             <option value="">Seleccione un grupo...</option>
             <option value="Semillas del Reino">Semillas del Reino</option>
             <option value="Exploradores">Exploradores</option>
-            <option value="Jóvenes">Jóvenes</option>
+            <option value="Vencedores">Vencedores</option>
+            <option value="Visionarios">Visionarios</option>
         </select>
 
         <label>Filtrar por Domingo:</label>
@@ -157,12 +191,10 @@
             <option value="Domingo 2">Domingo 2</option>
             <option value="Domingo 3">Domingo 3</option>
             <option value="Domingo 4">Domingo 4</option>
-            <option value="Domingo 5">Domingo 5</option>
         </select>
 
         <div id="contenedor-resumen" style="margin-top: 20px;">
-            <!-- Aquí se inyectan los datos con JavaScript -->
-            <p style="text-align: center; color: #666;">Selecciona un grupo y un domingo para ver el reporte.</p>
+            <p style="text-align: center; color: #666; font-size: 18px;">Selecciona grupo y domingo para ver el reporte.</p>
         </div>
 
         <button class="btn-atras" onclick="cambiarPantalla('inicio')">Atrás</button>
@@ -171,34 +203,27 @@
 </div>
 
 <script>
-    // Función para cambiar entre pantallas
     function cambiarPantalla(idPantalla) {
-        // Ocultar todas
         document.querySelectorAll('.pantalla').forEach(pantalla => {
             pantalla.classList.remove('activa');
         });
-        // Mostrar la seleccionada
         document.getElementById(idPantalla).classList.add('activa');
-        
-        // Limpiar errores o campos al volver al inicio
         if(idPantalla === 'inicio') {
             document.getElementById('error-login').style.display = 'none';
             document.getElementById('password-lider').value = '';
         }
     }
 
-    // Verificar contraseña de líder
     function verificarPassword() {
         const pass = document.getElementById('password-lider').value;
         if (pass === '1234') {
             cambiarPantalla('lider');
-            mostrarResumen(); // Cargar los datos guardados
+            mostrarResumen();
         } else {
             document.getElementById('error-login').style.display = 'block';
         }
     }
 
-    // Guardar datos del Maestro
     function guardarDatos() {
         const grupo = document.getElementById('m-grupo').value;
         const subgrupo = document.getElementById('m-subgrupo').value;
@@ -211,63 +236,46 @@
             return;
         }
 
-        // Crear objeto con los datos
-        const nuevoRegistro = {
-            grupo: grupo,
-            subgrupo: subgrupo,
-            domingo: domingo,
-            peticion: peticion,
-            asistencia: asistencia,
-            fechaRegistro: new Date().toLocaleString()
-        };
+        const nuevoRegistro = { grupo, subgrupo, domingo, peticion, asistencia, fechaRegistro: new Date().toLocaleString() };
 
-        // Traer registros anteriores o crear un array nuevo
         let registros = JSON.parse(localStorage.getItem('registrosIglesia')) || [];
         registros.push(nuevoRegistro);
-        
-        // Guardar en el navegador
         localStorage.setItem('registrosIglesia', JSON.stringify(registros));
 
         alert("¡Información guardada con éxito!");
         
-        // Limpiar campos
         document.getElementById('m-peticion').value = '';
         document.getElementById('m-asistencia').value = '';
         
         cambiarPantalla('inicio');
     }
 
-    // Mostrar el resumen al Líder
     function mostrarResumen() {
         const filtroGrupo = document.getElementById('l-grupo').value;
         const filtroDomingo = document.getElementById('l-domingo').value;
         const contenedor = document.getElementById('contenedor-resumen');
 
         if (!filtroGrupo || !filtroDomingo) {
-            contenedor.innerHTML = '<p style="text-align: center; color: #666;">Selecciona un grupo y un domingo para ver el reporte.</p>';
+            contenedor.innerHTML = '<p style="text-align: center; color: #666; font-size: 18px;">Selecciona grupo y domingo para ver el reporte.</p>';
             return;
         }
 
         let registros = JSON.parse(localStorage.getItem('registrosIglesia')) || [];
-        
-        // Filtrar por lo que seleccionó el líder
         let filtrados = registros.filter(r => r.grupo === filtroGrupo && r.domingo === filtroDomingo);
 
         if (filtrados.length === 0) {
-            contenedor.innerHTML = '<p style="text-align: center; color: red;">No hay registros para este grupo en este domingo.</p>';
+            contenedor.innerHTML = '<p style="text-align: center; color: red; font-size: 18px;">No hay registros para este domingo.</p>';
             return;
         }
 
-        // Crear el HTML para mostrar
         let html = `<h3>Reporte: ${filtroGrupo} - ${filtroDomingo}</h3>`;
         
         filtrados.forEach(registro => {
             html += `
                 <div class="registro-card">
                     <h4>${registro.subgrupo}</h4>
-                    <p><strong>Lo que pidieron/Información:</strong><br> ${registro.peticion}</p>
+                    <p><strong>Lo que pidieron:</strong><br> ${registro.peticion}</p>
                     <p><strong>Lista de Asistencia:</strong><br> ${registro.asistencia}</p>
-                    <small style="color: #888;">Guardado el: ${registro.fechaRegistro}</small>
                 </div>
             `;
         });
