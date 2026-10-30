@@ -5,138 +5,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escuela de Adoradores</title>
     <style>
-        :root {
-            --primary: #FF6FA5;
-            --secondary: #6CE5B0;
-            --accent: #FFD97D;
-            --dark: #4A4A4A;
-            --light: #FFF8E7;
-            --white: #FFFFFF;
-        }
         body {
-            font-family: 'Comic Sans MS', 'Ubuntu', 'Segoe UI', sans-serif;
-            background-color: var(--secondary);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f6f9;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
+            padding: 0;
+            color: #333;
         }
+        /* Encabezado elegante estilo original */
+        .header {
+            background-color: #5c6bc0;
+            color: white;
+            padding: 40px 20px 60px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+        
+        /* Contenedor principal superpuesto */
         .container {
-            background: var(--light);
-            padding: 30px;
-            border-radius: 40px;
-            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
-            width: 100%;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            width: 90%;
             max-width: 500px;
-            border: 5px solid var(--white);
+            margin: -40px auto 40px auto;
+            box-sizing: border-box;
         }
-        h1, h2 {
+
+        .pantalla {
+            display: none;
             text-align: center;
-            color: var(--dark);
-            text-shadow: 2px 2px 0 var(--white);
         }
-        .icon {
-            font-size: 50px;
-            text-align: center;
+        .activa {
             display: block;
-            margin-bottom: 10px;
         }
-        .pantalla { display: none; }
-        .activa { display: block; }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        /* Botones estilo Pill (Píldora) */
         button {
             width: 100%;
-            padding: 18px;
-            margin: 15px 0;
+            padding: 15px;
+            margin: 10px 0;
             border: none;
-            border-radius: 30px;
-            font-size: 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            background-color: var(--primary);
-            color: var(--white);
-            font-weight: bold;
-            box-shadow: 0 8px 0 #D4507D;
-            transition: transform 0.1s, box-shadow 0.1s;
+            color: white;
+            transition: opacity 0.2s;
         }
         button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 0 #D4507D;
+            opacity: 0.9;
         }
-        button:active {
-            transform: translateY(4px);
-            box-shadow: 0 4px 0 #D4507D;
+        
+        /* Colores exactos de tu diseño */
+        .btn-maestro { background-color: #f48fb1; }
+        .btn-lider { background-color: #111827; }
+        .btn-primary { background-color: #5c6bc0; }
+        .btn-back { background-color: #9ca3af; margin-top: 20px; }
+
+        /* Estilo de inputs elegante y limpio */
+        label {
+            display: block;
+            text-align: left;
+            font-weight: 600;
+            color: #374151;
+            margin: 15px 0 5px 5px;
+            font-size: 0.9rem;
         }
-        .btn-atras {
-            background-color: var(--dark);
-            box-shadow: 0 8px 0 #333333;
-        }
-        .btn-atras:hover { box-shadow: 0 10px 0 #333333; }
-        .btn-atras:active { box-shadow: 0 4px 0 #333333; }
         input, select, textarea {
             width: 100%;
-            padding: 15px;
-            margin: 10px 0 20px 0;
-            border: 3px solid var(--primary);
-            border-radius: 20px;
+            padding: 14px;
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
             box-sizing: border-box;
-            font-size: 16px;
+            font-size: 0.95rem;
             font-family: inherit;
+            color: #374151;
+            transition: border-color 0.2s;
         }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #5c6bc0;
+            background-color: #fff;
+        }
+
+        /* Tarjetas de resumen del líder */
         .registro-card {
-            background-color: var(--white);
-            border-radius: 25px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 4px solid var(--secondary);
-            box-shadow: 5px 5px 0 #DDD;
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-left: 5px solid #5c6bc0;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
         .registro-card h4 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 22px;
+            margin: 0 0 10px 0;
+            color: #5c6bc0;
+            font-size: 1.1rem;
+        }
+        .registro-card p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
         .mensaje-error {
-            color: red;
-            text-align: center;
+            color: #ef4444;
+            font-size: 0.9rem;
             display: none;
             margin-bottom: 15px;
-            font-weight: bold;
-        }
-        label {
-            font-weight: bold;
-            color: var(--dark);
-            margin-left: 10px;
         }
     </style>
 </head>
 <body>
 
+<div class="header">
+    <h1>Escuela de Adoradores</h1>
+    <p>Guiando a los niños en Su presencia</p>
+</div>
+
 <div class="container">
     
     <!-- PANTALLA INICIO -->
     <div id="inicio" class="pantalla activa">
-        <span class="icon">🎨</span>
-        <h1>¡Bienvenidos!</h1>
-        <p style="text-align: center; font-size: 18px;">Selecciona tu rol para comenzar:</p>
-        <button onclick="cambiarPantalla('maestro')">Maestro</button>
-        <button onclick="cambiarPantalla('login-lider')">Líder</button>
+        <h2>¡Bienvenidos!</h2>
+        <p class="subtitle">Seleccionen el rol para comenzar a gestionar.</p>
+        
+        <!-- Botones con tus colores originales -->
+        <div style="display: flex; gap: 15px; margin-top: 30px;">
+            <button class="btn-maestro" onclick="cambiarPantalla('maestro')">Maestro</button>
+            <button class="btn-lider" onclick="cambiarPantalla('login-lider')">Líder</button>
+        </div>
     </div>
 
     <!-- PANTALLA LOGIN LÍDER -->
     <div id="login-lider" class="pantalla">
-        <span class="icon">🔑</span>
         <h2>Acceso Líder</h2>
+        <p class="subtitle">Ingresa tu credencial para continuar</p>
+        
         <p id="error-login" class="mensaje-error">Contraseña incorrecta</p>
         <label>Contraseña:</label>
-        <input type="password" id="password-lider" placeholder="Ingresa la contraseña">
-        <button onclick="verificarPassword()">Ingresar</button>
-        <button class="btn-atras" onclick="cambiarPantalla('inicio')">Atrás</button>
+        <input type="password" id="password-lider" placeholder="Ingresa la contraseña (1234)">
+        
+        <button class="btn-lider" onclick="verificarPassword()">Ingresar</button>
+        <button class="btn-back" onclick="cambiarPantalla('inicio')">Volver al inicio</button>
     </div>
 
-    <!-- PANTALLA MAESTRO (FORMULARIO) -->
+    <!-- PANTALLA MAESTRO -->
     <div id="maestro" class="pantalla">
-        <span class="icon">📝</span>
-        <h2>Panel de Maestro</h2>
+        <h2>Registro de Clase</h2>
         
         <label>Ministerio / Grupo:</label>
         <select id="m-grupo">
@@ -160,22 +200,22 @@
             <option value="Domingo 4">Domingo 4</option>
         </select>
 
-        <label>¿Qué información o materiales piden?:</label>
-        <textarea id="m-peticion" rows="3" placeholder="Ej. Lápices, hojas..."></textarea>
+        <label>Materiales o información solicitada:</label>
+        <textarea id="m-peticion" rows="2" placeholder="Ej. Lápices, tijeras, copias..."></textarea>
 
         <label>Lista de Asistencia:</label>
-        <textarea id="m-asistencia" rows="4" placeholder="Escribe aquí los nombres de los asistentes..."></textarea>
+        <textarea id="m-asistencia" rows="4" placeholder="Escribe los nombres de los asistentes aquí..."></textarea>
 
-        <button onclick="guardarDatos()">Guardar Información</button>
-        <button class="btn-atras" onclick="cambiarPantalla('inicio')">Atrás</button>
+        <button class="btn-primary" onclick="guardarDatos()">Guardar Registro</button>
+        <button class="btn-back" onclick="cambiarPantalla('inicio')">Volver al inicio</button>
     </div>
 
     <!-- PANTALLA LÍDER (RESUMEN) -->
     <div id="lider" class="pantalla">
-        <span class="icon">📖</span>
-        <h2>Panel del Líder</h2>
+        <h2>Panel Administrativo</h2>
+        <p class="subtitle">Filtra para ver los registros</p>
         
-        <label>Filtrar por Ministerio/Grupo:</label>
+        <label>Selecciona el Ministerio/Grupo:</label>
         <select id="l-grupo" onchange="mostrarResumen()">
             <option value="">Seleccione un grupo...</option>
             <option value="Semillas del Reino">Semillas del Reino</option>
@@ -184,7 +224,7 @@
             <option value="Visionarios">Visionarios</option>
         </select>
 
-        <label>Filtrar por Domingo:</label>
+        <label>Selecciona el Domingo:</label>
         <select id="l-domingo" onchange="mostrarResumen()">
             <option value="">Seleccione el domingo...</option>
             <option value="Domingo 1">Domingo 1</option>
@@ -193,11 +233,11 @@
             <option value="Domingo 4">Domingo 4</option>
         </select>
 
-        <div id="contenedor-resumen" style="margin-top: 20px;">
-            <p style="text-align: center; color: #666; font-size: 18px;">Selecciona grupo y domingo para ver el reporte.</p>
+        <div id="contenedor-resumen" style="margin-top: 25px;">
+            <p style="color: #6b7280; font-size: 0.9rem;">Selecciona grupo y domingo para cargar la información.</p>
         </div>
 
-        <button class="btn-atras" onclick="cambiarPantalla('inicio')">Atrás</button>
+        <button class="btn-back" onclick="cambiarPantalla('inicio')">Cerrar Sesión</button>
     </div>
 
 </div>
@@ -208,6 +248,7 @@
             pantalla.classList.remove('activa');
         });
         document.getElementById(idPantalla).classList.add('activa');
+        
         if(idPantalla === 'inicio') {
             document.getElementById('error-login').style.display = 'none';
             document.getElementById('password-lider').value = '';
@@ -232,17 +273,24 @@
         const asistencia = document.getElementById('m-asistencia').value;
 
         if (!peticion || !asistencia) {
-            alert("Por favor, llena la petición y la lista de asistencia.");
+            alert("Por favor, llena los campos de materiales y asistencia.");
             return;
         }
 
-        const nuevoRegistro = { grupo, subgrupo, domingo, peticion, asistencia, fechaRegistro: new Date().toLocaleString() };
+        const nuevoRegistro = { 
+            grupo, 
+            subgrupo, 
+            domingo, 
+            peticion, 
+            asistencia, 
+            fechaRegistro: new Date().toLocaleDateString() 
+        };
 
-        let registros = JSON.parse(localStorage.getItem('registrosIglesia')) || [];
+        let registros = JSON.parse(localStorage.getItem('registrosAdoradores')) || [];
         registros.push(nuevoRegistro);
-        localStorage.setItem('registrosIglesia', JSON.stringify(registros));
+        localStorage.setItem('registrosAdoradores', JSON.stringify(registros));
 
-        alert("¡Información guardada con éxito!");
+        alert("Registro guardado exitosamente.");
         
         document.getElementById('m-peticion').value = '';
         document.getElementById('m-asistencia').value = '';
@@ -256,26 +304,26 @@
         const contenedor = document.getElementById('contenedor-resumen');
 
         if (!filtroGrupo || !filtroDomingo) {
-            contenedor.innerHTML = '<p style="text-align: center; color: #666; font-size: 18px;">Selecciona grupo y domingo para ver el reporte.</p>';
+            contenedor.innerHTML = '<p style="color: #6b7280; font-size: 0.9rem;">Selecciona grupo y domingo para cargar la información.</p>';
             return;
         }
 
-        let registros = JSON.parse(localStorage.getItem('registrosIglesia')) || [];
+        let registros = JSON.parse(localStorage.getItem('registrosAdoradores')) || [];
         let filtrados = registros.filter(r => r.grupo === filtroGrupo && r.domingo === filtroDomingo);
 
         if (filtrados.length === 0) {
-            contenedor.innerHTML = '<p style="text-align: center; color: red; font-size: 18px;">No hay registros para este domingo.</p>';
+            contenedor.innerHTML = '<p style="color: #ef4444; font-size: 0.9rem;">No hay registros cargados para este domingo.</p>';
             return;
         }
 
-        let html = `<h3>Reporte: ${filtroGrupo} - ${filtroDomingo}</h3>`;
+        let html = ``;
         
         filtrados.forEach(registro => {
             html += `
                 <div class="registro-card">
                     <h4>${registro.subgrupo}</h4>
-                    <p><strong>Lo que pidieron:</strong><br> ${registro.peticion}</p>
-                    <p><strong>Lista de Asistencia:</strong><br> ${registro.asistencia}</p>
+                    <p><strong>Materiales solicitados:</strong><br> ${registro.peticion}</p>
+                    <p><strong>Asistencia:</strong><br> ${registro.asistencia}</p>
                 </div>
             `;
         });
