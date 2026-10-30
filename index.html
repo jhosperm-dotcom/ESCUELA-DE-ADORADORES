@@ -6,371 +6,445 @@
     <title>Escuela de Adoradores</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f6f9;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 500px;
-            text-align: center;
-        }
-        h1, h2, h3 {
+            padding: 0;
             color: #333;
-            margin-bottom: 20px;
         }
-        .screen {
-            display: none;
-        }
-        .active-screen {
-            display: block;
-        }
-        button {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.1s, background-color 0.2s;
-        }
-        button:active {
-            transform: scale(0.98);
-        }
-        .btn-primary {
+        
+        /* Encabezado Azul Original */
+        .header {
             background-color: #5c6bc0;
             color: white;
+            padding: 40px 20px 60px 20px;
+            text-align: center;
         }
-        .btn-primary:hover {
-            background-color: #3f51b5;
+        .header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
         }
-        .btn-secondary {
-            background-color: #f48fb1;
-            color: white;
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1rem;
+            font-weight: 300;
         }
-        .btn-secondary:hover {
-            background-color: #f06292;
+        
+        /* Contenedor principal blanco */
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            width: 90%;
+            max-width: 600px;
+            margin: -40px auto 40px auto;
+            box-sizing: border-box;
+            min-height: 400px;
         }
-        .btn-dark {
-            background-color: #37474f;
-            color: white;
+
+        .pantalla {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.3s ease-in-out;
         }
-        .btn-dark:hover {
-            background-color: #263238;
+        .activa {
+            display: block;
         }
-        .btn-back {
-            background-color: #e0e0e0;
-            color: #333;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 { font-size: 1.5rem; margin-bottom: 20px; color: #1f2937; text-align: left; }
+        .subtitle { color: #6b7280; margin-bottom: 25px; font-size: 0.95rem; text-align: center; }
+
+        /* Contenedor para los botones de colores de la foto */
+        .grid-grupos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
             margin-top: 20px;
         }
-        .btn-back:hover {
-            background-color: #d6d6d6;
-        }
-        .btn-group {
-            background-color: #e8eaf6;
-            color: #283593;
-            font-size: 16px;
-            border: 2px solid #c5cae9;
-        }
-        .btn-group:hover {
-            background-color: #c5cae9;
-        }
-        .btn-sunday {
-            background-color: #fff3e0;
-            color: #e65100;
-            border: 2px solid #ffe0b2;
-        }
-        .btn-sunday:hover {
-            background-color: #ffe0b2;
-        }
-        input, select, textarea {
+
+        /* Estilo general de botones */
+        button {
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.2s;
             width: 100%;
-            padding: 12px;
-            margin: 10px 0 20px 0;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            box-sizing: border-box;
-            font-size: 16px;
         }
-        input:focus, select:focus, textarea:focus {
-            border-color: #5c6bc0;
-            outline: none;
+        button:active { transform: scale(0.98); }
+        button:hover { opacity: 0.9; }
+
+        /* Botones de Inicio */
+        .btn-maestro { background-color: #f48fb1; color: white; border-radius: 50px; }
+        .btn-lider { background-color: #111827; color: white; border-radius: 50px; }
+        
+        /* Botones de Grupos (estilo de la foto con bordes de colores) */
+        .btn-outline {
+            background-color: #fafafa;
+            border: 2px solid #ccc;
+            color: #333;
+            border-radius: 15px;
+            padding: 20px 10px;
+            font-size: 1rem;
         }
+        .btn-outline-exploradores { border-color: #4caf50; color: #2e7d32; }
+        .btn-outline-semillas { border-color: #009688; color: #00695c; }
+        .btn-outline-vencedores { border-color: #ff9800; color: #e65100; }
+        .btn-outline-visionarios { border-color: #f44336; color: #c62828; }
+
+        .btn-domingo { background-color: #fce7f3; color: #9d174d; border-radius: 50px; margin-bottom: 10px; }
+        .btn-primary { background-color: #5c6bc0; color: white; border-radius: 50px; margin-top: 20px; }
+        .btn-back { background-color: transparent; color: #6b7280; margin-top: 20px; font-weight: normal; text-decoration: underline; }
+
+        /* Pestañas (Tabs) */
         .tabs {
             display: flex;
             margin-bottom: 20px;
-            border-bottom: 2px solid #ddd;
+            border-bottom: 2px solid #e5e7eb;
         }
         .tab {
             flex: 1;
             padding: 12px;
             background: none;
-            border-radius: 10px 10px 0 0;
-            border: none;
-            cursor: pointer;
-            color: #666;
+            color: #6b7280;
+            border-radius: 0;
             font-weight: bold;
         }
-        .tab.active-tab {
-            background-color: #5c6bc0;
-            color: white;
+        .tab.activa {
+            color: #5c6bc0;
+            border-bottom: 3px solid #5c6bc0;
         }
         .tab-content {
             display: none;
             text-align: left;
         }
-        .tab-content.active-tab-content {
+        .tab-content.activa {
             display: block;
+            animation: fadeIn 0.3s;
         }
-        .report-card {
-            background-color: #f9f9f9;
+
+        /* Inputs */
+        label {
+            display: block;
+            text-align: left;
+            font-weight: 600;
+            color: #374151;
+            margin: 15px 0 5px 5px;
+            font-size: 0.9rem;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            box-sizing: border-box;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #5c6bc0;
+            background-color: #fff;
+        }
+
+        .mensaje-error { color: #ef4444; display: none; margin-bottom: 15px; }
+        
+        /* Tarjetas Líder */
+        .registro-card {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
             border-left: 5px solid #5c6bc0;
             padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            text-align: left;
-        }
-        .error-message {
-            color: #d32f2f;
-            font-weight: bold;
-            display: none;
             margin-bottom: 15px;
+            border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
+        .registro-card h4 { margin: 0 0 10px 0; color: #5c6bc0; }
+        .registro-card p { margin: 5px 0; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
+<div class="header">
+    <h1>Escuela de Adoradores</h1>
+    <p>Guiando a los niños en Su presencia</p>
+</div>
+
 <div class="container">
     
-    <!-- PANTALLA DE INICIO -->
-    <div id="screen-inicio" class="screen active-screen">
-        <h1>¡Bienvenidos!</h1>
-        <p>Selecciona tu rol:</p>
-        <button class="btn-secondary" onclick="showScreen('screen-maestro-grupos')">Maestro</button>
-        <button class="btn-dark" onclick="showScreen('screen-lider-login')">Líder</button>
+    <!-- 1. INICIO -->
+    <div id="inicio" class="pantalla activa">
+        <h2 style="text-align: center;">¡Bienvenidos!</h2>
+        <p class="subtitle">Seleccionen el rol para comenzar a gestionar.</p>
+        <div style="display: flex; gap: 15px; margin-top: 30px;">
+            <button class="btn-maestro" onclick="irAPantalla('seleccionar-grupo')">Soy Maestro</button>
+            <button class="btn-lider" onclick="irAPantalla('login-lider')">Soy Líder</button>
+        </div>
     </div>
 
-    <!-- LOGIN DE LÍDER -->
-    <div id="screen-lider-login" class="screen">
-        <h2>Acceso Líder</h2>
-        <p id="lider-error" class="error-message">Contraseña incorrecta</p>
-        <label>Contraseña:</label>
-        <input type="password" id="input-password" placeholder="Ingresa la contraseña">
-        <button class="btn-dark" onclick="verifyPassword()">Ingresar</button>
-        <button class="btn-back" onclick="showScreen('screen-inicio')">Atrás</button>
+    <!-- 2. MAESTRO: SELECCIONAR GRUPO -->
+    <div id="seleccionar-grupo" class="pantalla">
+        <h2>Selecciona el Grupo</h2>
+        <div class="grid-grupos">
+            <button class="btn-outline btn-outline-exploradores" onclick="seleccionarGrupo('Exploradores')">Exploradores</button>
+            <button class="btn-outline btn-outline-semillas" onclick="seleccionarGrupo('Semillas del Reino')">Semillas del Reino</button>
+            <button class="btn-outline btn-outline-vencedores" onclick="seleccionarGrupo('Vencedores')">Vencedores</button>
+            <button class="btn-outline btn-outline-visionarios" onclick="seleccionarGrupo('Visionarios')">Visionarios</button>
+        </div>
+        <button class="btn-back" onclick="irAPantalla('inicio')">Volver al inicio</button>
     </div>
 
-    <!-- SELECCIÓN DE MINISTERIO - MAESTRO -->
-    <div id="screen-maestro-grupos" class="screen">
-        <h2>Selecciona tu Ministerio</h2>
-        <button class="btn-group" onclick="selectGroup('Semillas del Reino')">Semillas del Reino</button>
-        <button class="btn-group" onclick="selectGroup('Exploradores')">Exploradores</button>
-        <button class="btn-group" onclick="selectGroup('Vencedores')">Vencedores</button>
-        <button class="btn-group" onclick="selectGroup('Visionarios')">Visionarios</button>
-        <button class="btn-back" onclick="showScreen('screen-inicio')">Atrás</button>
+    <!-- 3. MAESTRO: SELECCIONAR SUBGRUPO -->
+    <div id="seleccionar-subgrupo" class="pantalla">
+        <h2>Selecciona tu Subgrupo</h2>
+        <p class="subtitle" id="titulo-grupo-seleccionado" style="color: #5c6bc0; font-weight: bold;"></p>
+        <div class="grid-grupos">
+            <button class="btn-outline" style="border-color: #5c6bc0; color: #5c6bc0;" onclick="seleccionarSubgrupo('Grupo A')">Grupo A</button>
+            <button class="btn-outline" style="border-color: #5c6bc0; color: #5c6bc0;" onclick="seleccionarSubgrupo('Grupo B')">Grupo B</button>
+        </div>
+        <button class="btn-back" onclick="irAPantalla('seleccionar-grupo')">Atrás</button>
     </div>
 
-    <!-- SELECCIÓN DE SUBGRUPO - MAESTRO -->
-    <div id="screen-maestro-subgrupos" class="screen">
-        <h2>¿Qué subgrupo eres?</h2>
-        <button class="btn-group" onclick="selectSubgroup('Grupo A')">Grupo A</button>
-        <button class="btn-group" onclick="selectSubgroup('Grupo B')">Grupo B</button>
-        <button class="btn-back" onclick="showScreen('screen-maestro-grupos')">Atrás</button>
-    </div>
-
-    <!-- SELECCIÓN DE DOMINGO - MAESTRO -->
-    <div id="screen-maestro-domingos" class="screen">
+    <!-- 4. MAESTRO: SELECCIONAR DOMINGO -->
+    <div id="seleccionar-domingo" class="pantalla">
         <h2>Selecciona el Domingo</h2>
-        <div id="sunday-buttons-container"></div>
-        <button class="btn-back" onclick="showScreen('screen-maestro-subgrupos')">Atrás</button>
+        <p class="subtitle" id="info-subgrupo-seleccionado"></p>
+        
+        <div id="contenedor-domingos">
+            <!-- Botones generados por JS -->
+        </div>
+        
+        <button class="btn-back" onclick="irAPantalla('seleccionar-subgrupo')">Atrás</button>
     </div>
 
-    <!-- FORMULARIO DEL MAESTRO -->
-    <div id="screen-maestro-formulario" class="screen">
-        <h2 id="form-title">Registro</h2>
+    <!-- 5. MAESTRO: FORMULARIO CON PESTAÑAS -->
+    <div id="formulario-clase" class="pantalla">
+        <h2 id="titulo-resumen-clase" style="text-align: center; color: #5c6bc0; font-size: 1.2rem;"></h2>
         
         <div class="tabs">
-            <button class="tab active-tab" onclick="openTab('tab-content')">Contenido</button>
-            <button class="tab" onclick="openTab('tab-attendance')">Asistencia</button>
+            <button class="tab activa" onclick="cambiarPestana('tab-materiales', this)">Contenido y Materiales</button>
+            <button class="tab" onclick="cambiarPestana('tab-asistencia', this)">Asistencia</button>
         </div>
 
-        <div id="tab-content" class="tab-content active-tab-content">
-            <label>Título de la clase:</label>
-            <input type="text" id="input-titulo" placeholder="Ej. El Buen Pastor">
-            <label>Descripción breve:</label>
-            <textarea id="input-descripcion" rows="3" placeholder="¿De qué trata la clase?"></textarea>
-            <label>Materiales que necesito:</label>
-            <textarea id="input-materiales" rows="3" placeholder="Ej. Colores, lápices, papel"></textarea>
+        <!-- Pestaña 1: Materiales -->
+        <div id="tab-materiales" class="tab-content activa">
+            <label>Nombre de la temática:</label>
+            <input type="text" id="m-titulo" placeholder="Ej. El Buen Pastor">
+            
+            <label>Descripción breve de la Clase:</label>
+            <textarea id="m-descripcion" rows="2" placeholder="¿De qué trata la clase?"></textarea>
+
+            <label>Materiales necesarios:</label>
+            <textarea id="m-materiales" rows="3" placeholder="Ej. Papel de colores, tijeras, pegamento..."></textarea>
         </div>
 
-        <div id="tab-attendance" class="tab-content">
-            <label>Nombres de los asistentes:</label>
-            <textarea id="input-asistencia" rows="6" placeholder="Escribe los nombres de los niños..."></textarea>
+        <!-- Pestaña 2: Asistencia -->
+        <div id="tab-asistencia" class="tab-content">
+            <label>Registro de Asistencia:</label>
+            <textarea id="m-asistencia" rows="6" placeholder="Escribe los nombres de los niños que asistieron..."></textarea>
         </div>
 
-        <button class="btn-primary" onclick="saveData()">Guardar Información</button>
-        <button class="btn-back" onclick="showScreen('screen-maestro-domingos')">Atrás</button>
+        <button class="btn-primary" onclick="guardarRegistro()">Guardar Información</button>
+        <button class="btn-back" onclick="irAPantalla('seleccionar-domingo')">Atrás</button>
     </div>
 
-    <!-- VISTA DEL LÍDER -->
-    <div id="screen-lider-dashboard" class="screen">
-        <h2>Panel del Líder</h2>
+    <!-- LOGIN LÍDER -->
+    <div id="login-lider" class="pantalla">
+        <h2 style="text-align: center;">Acceso Líder</h2>
+        <p id="error-login" class="mensaje-error" style="text-align: center;">Contraseña incorrecta</p>
+        <label>Contraseña:</label>
+        <input type="password" id="password-lider" placeholder="Ingresa la contraseña">
+        <button class="btn-lider" style="margin-top: 15px;" onclick="verificarPassword()">Ingresar</button>
+        <button class="btn-back" onclick="irAPantalla('inicio')">Volver al inicio</button>
+    </div>
+
+    <!-- PANEL LÍDER -->
+    <div id="panel-lider" class="pantalla">
+        <h2>Panel Administrativo</h2>
         
-        <label>Selecciona el Ministerio:</label>
-        <select id="select-lider-grupo" onchange="loadLeaderReport()">
-            <option value="">Selecciona...</option>
-            <option value="Semillas del Reino">Semillas del Reino</option>
+        <label>Filtrar por Domingo:</label>
+        <select id="l-domingo" onchange="mostrarResumenLider()">
+            <option value="">Seleccione el domingo...</option>
+            <option value="1 de noviembre">1 de noviembre</option>
+            <option value="8 de noviembre">8 de noviembre</option>
+            <option value="15 de noviembre">15 de noviembre</option>
+            <option value="22 de noviembre">22 de noviembre</option>
+            <option value="29 de noviembre">29 de noviembre</option>
+            <option value="6 de diciembre">6 de diciembre</option>
+            <option value="13 de diciembre">13 de diciembre</option>
+            <option value="20 de diciembre">20 de diciembre</option>
+            <option value="27 de diciembre">27 de diciembre</option>
+        </select>
+
+        <label>Filtrar por Grupo:</label>
+        <select id="l-grupo" onchange="mostrarResumenLider()">
+            <option value="">Seleccione un grupo...</option>
             <option value="Exploradores">Exploradores</option>
+            <option value="Semillas del Reino">Semillas del Reino</option>
             <option value="Vencedores">Vencedores</option>
             <option value="Visionarios">Visionarios</option>
         </select>
 
-        <label>Selecciona el Domingo:</label>
-        <select id="select-lider-domingo" onchange="loadLeaderReport()">
-            <option value="">Selecciona...</option>
-        </select>
-
-        <div id="lider-report-container"></div>
-
-        <button class="btn-back" onclick="logout()">Cerrar Sesión</button>
+        <div id="contenedor-resumen" style="margin-top: 25px; text-align: left;">
+            <p style="color: #6b7280; font-size: 0.9rem; text-align: center;">Selecciona filtros para ver los reportes.</p>
+        </div>
+        <button class="btn-back" onclick="irAPantalla('inicio')">Cerrar Sesión</button>
     </div>
 
 </div>
 
 <script>
-    let currentData = { group: '', subgroup: '', sunday: '', title: '', description: '', materials: '', attendance: '' };
-    
-    // Calendario intercalado de domingos
-    const calendar = {
+    // Variables de estado
+    let seleccionActual = {
+        grupo: '',
+        subgrupo: '',
+        domingo: ''
+    };
+
+    // Calendario Intercalado Nov-Dic
+    const domingos = {
         "Grupo A": ["1 de noviembre", "15 de noviembre", "29 de noviembre", "13 de diciembre", "27 de diciembre"],
         "Grupo B": ["8 de noviembre", "22 de noviembre", "6 de diciembre", "20 de diciembre"]
     };
 
-    // Población dinámica de domingos para el líder
-    const allSundays = ["1 de noviembre", "8 de noviembre", "15 de noviembre", "22 de noviembre", "29 de noviembre", "6 de diciembre", "13 de diciembre", "20 de diciembre", "27 de diciembre"];
-    
-    function populateLeaderSundays() {
-        const select = document.getElementById('select-lider-domingo');
-        allSundays.forEach(sunday => {
-            const option = document.createElement('option');
-            option.value = sunday;
-            option.textContent = sunday;
-            select.appendChild(option);
-        });
-    }
-    populateLeaderSundays();
-
-    function showScreen(screenId) {
-        document.querySelectorAll('.screen').forEach(screen => {
-            screen.classList.remove('active-screen');
-        });
-        document.getElementById(screenId).classList.add('active-screen');
+    function irAPantalla(idPantalla) {
+        document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
+        document.getElementById(idPantalla).classList.add('activa');
+        if(idPantalla === 'inicio') document.getElementById('password-lider').value = '';
     }
 
-    function verifyPassword() {
-        if (document.getElementById('input-password').value === "Ingri") {
-            document.getElementById('lider-error').style.display = 'none';
-            showScreen('screen-lider-dashboard');
-        } else {
-            document.getElementById('lider-error').style.display = 'block';
-        }
+    function seleccionarGrupo(grupo) {
+        seleccionActual.grupo = grupo;
+        document.getElementById('titulo-grupo-seleccionado').innerText = grupo;
+        irAPantalla('seleccionar-subgrupo');
     }
 
-    function selectGroup(group) {
-        currentData.group = group;
-        showScreen('screen-maestro-subgrupos');
+    function seleccionarSubgrupo(subgrupo) {
+        seleccionActual.subgrupo = subgrupo;
+        document.getElementById('info-subgrupo-seleccionado').innerText = `${seleccionActual.grupo} - ${subgrupo}`;
+        generarBotonesDomingo();
+        irAPantalla('seleccionar-domingo');
     }
 
-    function selectSubgroup(subgroup) {
-        currentData.subgroup = subgroup;
-        renderSundayButtons();
-        showScreen('screen-maestro-domingos');
-    }
-
-    function renderSundayButtons() {
-        const container = document.getElementById('sunday-buttons-container');
-        container.innerHTML = '';
-        const availableSundays = calendar[currentData.subgroup];
+    function generarBotonesDomingo() {
+        const contenedor = document.getElementById('contenedor-domingos');
+        contenedor.innerHTML = '';
         
-        availableSundays.forEach(sunday => {
-            const button = document.createElement('button');
-            button.className = 'btn-sunday';
-            button.textContent = sunday;
-            button.onclick = () => {
-                currentData.sunday = sunday;
-                document.getElementById('form-title').textContent = `${currentData.group} - ${currentData.subgroup} (${currentData.sunday})`;
-                showScreen('screen-maestro-formulario');
-            };
-            container.appendChild(button);
+        const fechas = domingos[seleccionActual.subgrupo];
+        
+        fechas.forEach(fecha => {
+            const btn = document.createElement('button');
+            btn.className = 'btn-domingo';
+            btn.innerText = fecha;
+            btn.onclick = () => abrirFormularioClase(fecha);
+            contenedor.appendChild(btn);
         });
     }
 
-    function openTab(tabId) {
-        document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active-tab'));
-        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active-tab-content'));
+    function abrirFormularioClase(fecha) {
+        seleccionActual.domingo = fecha;
+        document.getElementById('titulo-resumen-clase').innerText = `${seleccionActual.grupo} - ${seleccionActual.subgrupo} (${fecha})`;
         
-        event.currentTarget.classList.add('active-tab');
-        document.getElementById(tabId).classList.add('active-tab-content');
+        document.getElementById('m-titulo').value = '';
+        document.getElementById('m-descripcion').value = '';
+        document.getElementById('m-materiales').value = '';
+        document.getElementById('m-asistencia').value = '';
+        
+        // Resetear a pestaña principal
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('activa'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('activa'));
+        document.querySelector('.tab').classList.add('activa');
+        document.getElementById('tab-materiales').classList.add('activa');
+
+        irAPantalla('formulario-clase');
     }
 
-    function saveData() {
-        currentData.title = document.getElementById('input-titulo').value;
-        currentData.description = document.getElementById('input-descripcion').value;
-        currentData.materials = document.getElementById('input-materiales').value;
-        currentData.attendance = document.getElementById('input-asistencia').value;
-
-        let db = JSON.parse(localStorage.getItem('iglesiaDB')) || [];
-        db.push(currentData);
-        localStorage.setItem('iglesiaDB', JSON.stringify(db));
-
-        alert("¡Información guardada con éxito!");
-        showScreen('screen-inicio');
+    function cambiarPestana(idPestana, btnElement) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('activa'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('activa'));
+        
+        btnElement.classList.add('activa');
+        document.getElementById(idPestana).classList.add('activa');
     }
 
-    function loadLeaderReport() {
-        const group = document.getElementById('select-lider-grupo').value;
-        const sunday = document.getElementById('select-lider-domingo').value;
-        const container = document.getElementById('lider-report-container');
-        container.innerHTML = '';
+    function guardarRegistro() {
+        const titulo = document.getElementById('m-titulo').value;
+        const descripcion = document.getElementById('m-descripcion').value;
+        const materiales = document.getElementById('m-materiales').value;
+        const asistencia = document.getElementById('m-asistencia').value;
 
-        if (!group || !sunday) return;
-
-        const db = JSON.parse(localStorage.getItem('iglesiaDB')) || [];
-        const records = db.filter(record => record.group === group && record.sunday === sunday);
-
-        if (records.length === 0) {
-            container.innerHTML = '<p>No hay registros para esta selección.</p>';
+        if (!titulo || !materiales || !asistencia) {
+            alert("Por favor, llena la temática, los materiales y la asistencia.");
             return;
         }
 
-        records.forEach(record => {
-            const card = document.createElement('div');
-            card.className = 'report-card';
-            card.innerHTML = `
-                <h3>${record.subgroup}</h3>
-                <p><strong>Título:</strong> ${record.title}</p>
-                <p><strong>Descripción:</strong><br>${record.description}</p>
-                <p><strong>Materiales:</strong><br>${record.materials}</p>
-                <p><strong>Asistencia:</strong><br>${record.attendance.replace(/\n/g, '<br>')}</p>
-            `;
-            container.appendChild(card);
-        });
+        const registro = {
+            grupo: seleccionActual.grupo,
+            subgrupo: seleccionActual.subgrupo,
+            domingo: seleccionActual.domingo,
+            titulo, descripcion, materiales, asistencia
+        };
+
+        let DB = JSON.parse(localStorage.getItem('iglesiaDB_v2')) || [];
+        DB.push(registro);
+        localStorage.setItem('iglesiaDB_v2', JSON.stringify(DB));
+
+        alert("¡Información guardada con éxito!");
+        irAPantalla('inicio');
     }
 
-    function logout() {
-        document.getElementById('input-password').value = '';
-        showScreen('screen-inicio');
+    function verificarPassword() {
+        if (document.getElementById('password-lider').value === 'Ingri') {
+            document.getElementById('error-login').style.display = 'none';
+            irAPantalla('panel-lider');
+            mostrarResumenLider();
+        } else {
+            document.getElementById('error-login').style.display = 'block';
+        }
+    }
+
+    function mostrarResumenLider() {
+        const d = document.getElementById('l-domingo').value;
+        const g = document.getElementById('l-grupo').value;
+        const contenedor = document.getElementById('contenedor-resumen');
+
+        if (!d || !g) {
+            contenedor.innerHTML = '<p style="text-align: center; color: #6b7280;">Selecciona domingo y grupo para ver datos.</p>';
+            return;
+        }
+
+        let DB = JSON.parse(localStorage.getItem('iglesiaDB_v2')) || [];
+        let filtrados = DB.filter(r => r.domingo === d && r.grupo === g);
+
+        if (filtrados.length === 0) {
+            contenedor.innerHTML = '<p style="color:red; text-align: center;">No hay registros cargados aún.</p>';
+            return;
+        }
+
+        let html = '';
+        filtrados.forEach(r => {
+            html += `
+                <div class="registro-card">
+                    <h4>${r.subgrupo} - ${r.titulo}</h4>
+                    <p><strong>Descripción:</strong> ${r.descripcion}</p>
+                    <p><strong>Materiales solicitados:</strong> ${r.materiales}</p>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+                    <p><strong>Asistencia:</strong><br>${r.asistencia.replace(/\n/g, '<br>')}</p>
+                </div>
+            `;
+        });
+        contenedor.innerHTML = html;
     }
 </script>
-
 </body>
 </html>
