@@ -20,16 +20,8 @@
             padding: 40px 20px 60px 20px;
             text-align: center;
         }
-        .header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-            font-weight: 700;
-        }
-        .header p {
-            margin: 10px 0 0 0;
-            font-size: 1rem;
-            font-weight: 300;
-        }
+        .header h1 { margin: 0; font-size: 2.2rem; font-weight: 700; }
+        .header p { margin: 10px 0 0 0; font-size: 1rem; font-weight: 300; }
         
         /* Contenedor principal blanco */
         .container {
@@ -49,9 +41,7 @@
             text-align: center;
             animation: fadeIn 0.3s ease-in-out;
         }
-        .activa {
-            display: block;
-        }
+        .activa { display: block; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -60,13 +50,9 @@
         h2 { font-size: 1.5rem; margin-bottom: 20px; color: #1f2937; text-align: left; }
         .subtitle { color: #6b7280; margin-bottom: 25px; font-size: 0.95rem; text-align: center; }
 
-        /* Contenedor para los botones de colores de la foto */
-        .grid-grupos {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 20px;
-        }
+        /* Grids */
+        .grid-grupos { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .grid-domingos { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 15px; }
 
         /* Estilo general de botones */
         button {
@@ -82,11 +68,11 @@
         button:active { transform: scale(0.98); }
         button:hover { opacity: 0.9; }
 
-        /* Botones de Inicio */
+        /* Botones de Roles */
         .btn-maestro { background-color: #f48fb1; color: white; border-radius: 50px; }
         .btn-lider { background-color: #111827; color: white; border-radius: 50px; }
         
-        /* Botones de Grupos (estilo de la foto con bordes de colores) */
+        /* Botones de Grupos */
         .btn-outline {
             background-color: #fafafa;
             border: 2px solid #ccc;
@@ -100,77 +86,46 @@
         .btn-outline-vencedores { border-color: #ff9800; color: #e65100; }
         .btn-outline-visionarios { border-color: #f44336; color: #c62828; }
 
-        .btn-domingo { background-color: #fce7f3; color: #9d174d; border-radius: 50px; margin-bottom: 10px; }
+        .btn-domingo { background-color: #fce7f3; color: #9d174d; border-radius: 50px; }
         .btn-primary { background-color: #5c6bc0; color: white; border-radius: 50px; margin-top: 20px; }
         .btn-back { background-color: transparent; color: #6b7280; margin-top: 20px; font-weight: normal; text-decoration: underline; }
 
-        /* Pestañas (Tabs) */
-        .tabs {
-            display: flex;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #e5e7eb;
-        }
-        .tab {
-            flex: 1;
-            padding: 12px;
-            background: none;
-            color: #6b7280;
-            border-radius: 0;
-            font-weight: bold;
-        }
-        .tab.activa {
-            color: #5c6bc0;
-            border-bottom: 3px solid #5c6bc0;
-        }
-        .tab-content {
-            display: none;
-            text-align: left;
-        }
-        .tab-content.activa {
-            display: block;
-            animation: fadeIn 0.3s;
-        }
+        /* Pestañas */
+        .tabs { display: flex; margin-bottom: 20px; border-bottom: 2px solid #e5e7eb; }
+        .tab { flex: 1; padding: 12px; background: none; color: #6b7280; border-radius: 0; font-weight: bold; }
+        .tab.activa { color: #5c6bc0; border-bottom: 3px solid #5c6bc0; }
+        .tab-content { display: none; text-align: left; }
+        .tab-content.activa { display: block; animation: fadeIn 0.3s; }
 
         /* Inputs */
-        label {
-            display: block;
-            text-align: left;
-            font-weight: 600;
-            color: #374151;
-            margin: 15px 0 5px 5px;
-            font-size: 0.9rem;
-        }
+        label { display: block; text-align: left; font-weight: 600; color: #374151; margin: 15px 0 5px 5px; font-size: 0.9rem; }
         input, select, textarea {
-            width: 100%;
-            padding: 14px;
-            background-color: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            box-sizing: border-box;
-            font-size: 0.95rem;
-            font-family: inherit;
+            width: 100%; padding: 14px; background-color: #f9fafb;
+            border: 1px solid #e5e7eb; border-radius: 12px; box-sizing: border-box;
+            font-size: 0.95rem; font-family: inherit;
         }
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: #5c6bc0;
-            background-color: #fff;
-        }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #5c6bc0; background-color: #fff; }
 
         .mensaje-error { color: #ef4444; display: none; margin-bottom: 15px; }
         
-        /* Tarjetas Líder */
+        /* Tarjetas (Reportes Líder / Semáforo) */
         .registro-card {
-            background-color: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-left: 5px solid #5c6bc0;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            text-align: left;
+            background-color: #ffffff; border: 1px solid #e5e7eb; border-left: 5px solid #5c6bc0;
+            padding: 15px; margin-bottom: 15px; border-radius: 8px; text-align: left;
             box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
         .registro-card h4 { margin: 0 0 10px 0; color: #5c6bc0; }
         .registro-card p { margin: 5px 0; font-size: 0.9rem; }
+
+        /* Estilos de los estados del Semáforo */
+        .semaforo-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee; }
+        .badge-amarillo { background-color: #fef08a; color: #854d0e; padding: 4px 10px; border-radius: 12px; font-weight: bold; font-size: 0.8rem; }
+        .badge-rojo { background-color: #fecaca; color: #991b1b; padding: 4px 10px; border-radius: 12px; font-weight: bold; font-size: 0.8rem; }
+        
+        /* Separador de secciones extras */
+        .secciones-extras { margin-top: 40px; padding-top: 25px; border-top: 2px dashed #e5e7eb; }
+        .btn-extra { background-color: #f3f4f6; color: #374151; border: 1px solid #d1d5db; border-radius: 12px; margin-bottom: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-extra:hover { background-color: #e5e7eb; }
     </style>
 </head>
 <body>
@@ -182,17 +137,24 @@
 
 <div class="container">
     
-    <!-- 1. INICIO -->
+    <!-- ==================== 1. INICIO PRINCIPAL ==================== -->
     <div id="inicio" class="pantalla activa">
         <h2 style="text-align: center;">¡Bienvenidos!</h2>
-        <p class="subtitle">Seleccionen el rol para comenzar a gestionar.</p>
-        <div style="display: flex; gap: 15px; margin-top: 30px;">
+        <p class="subtitle">Seleccionen el rol para gestionar la clase principal.</p>
+        <div style="display: flex; gap: 15px; margin-top: 20px;">
             <button class="btn-maestro" onclick="irAPantalla('seleccionar-grupo')">Soy Maestro</button>
-            <button class="btn-lider" onclick="irAPantalla('login-lider')">Soy Líder</button>
+            <button class="btn-lider" onclick="prepararLogin('principal')">Soy Líder</button>
+        </div>
+
+        <!-- NUEVAS SECCIONES -->
+        <div class="secciones-extras">
+            <p class="subtitle" style="font-size: 0.85rem; font-weight: bold; margin-bottom: 15px; letter-spacing: 1px;">OTRAS SECCIONES</p>
+            <button class="btn-extra" onclick="irAPantalla('semaforo-rol')">🚥 Sección Semáforo</button>
+            <button class="btn-extra" onclick="irAPantalla('refrigerio-rol')">🥪 Sección Refrigerio</button>
         </div>
     </div>
 
-    <!-- 2. MAESTRO: SELECCIONAR GRUPO -->
+    <!-- ==================== FLUJO PRINCIPAL (MAESTRO) ==================== -->
     <div id="seleccionar-grupo" class="pantalla">
         <h2>Selecciona el Grupo</h2>
         <div class="grid-grupos">
@@ -204,7 +166,6 @@
         <button class="btn-back" onclick="irAPantalla('inicio')">Volver al inicio</button>
     </div>
 
-    <!-- 3. MAESTRO: SELECCIONAR SUBGRUPO -->
     <div id="seleccionar-subgrupo" class="pantalla">
         <h2>Selecciona tu Subgrupo</h2>
         <p class="subtitle" id="titulo-grupo-seleccionado" style="color: #5c6bc0; font-weight: bold;"></p>
@@ -215,52 +176,38 @@
         <button class="btn-back" onclick="irAPantalla('seleccionar-grupo')">Atrás</button>
     </div>
 
-    <!-- 4. MAESTRO: SELECCIONAR DOMINGO -->
     <div id="seleccionar-domingo" class="pantalla">
         <h2>Selecciona el Domingo</h2>
         <p class="subtitle" id="info-subgrupo-seleccionado"></p>
-        
-        <div id="contenedor-domingos">
-            <!-- Botones generados por JS -->
-        </div>
-        
+        <div id="contenedor-domingos" class="grid-domingos"></div>
         <button class="btn-back" onclick="irAPantalla('seleccionar-subgrupo')">Atrás</button>
     </div>
 
-    <!-- 5. MAESTRO: FORMULARIO CON PESTAÑAS -->
     <div id="formulario-clase" class="pantalla">
         <h2 id="titulo-resumen-clase" style="text-align: center; color: #5c6bc0; font-size: 1.2rem;"></h2>
-        
         <div class="tabs">
             <button class="tab activa" onclick="cambiarPestana('tab-materiales', this)">Contenido y Materiales</button>
             <button class="tab" onclick="cambiarPestana('tab-asistencia', this)">Asistencia</button>
         </div>
-
-        <!-- Pestaña 1: Materiales -->
         <div id="tab-materiales" class="tab-content activa">
             <label>Nombre de la temática:</label>
             <input type="text" id="m-titulo" placeholder="Ej. El Buen Pastor">
-            
             <label>Descripción breve de la Clase:</label>
             <textarea id="m-descripcion" rows="2" placeholder="¿De qué trata la clase?"></textarea>
-
             <label>Materiales necesarios:</label>
-            <textarea id="m-materiales" rows="3" placeholder="Ej. Papel de colores, tijeras, pegamento..."></textarea>
+            <textarea id="m-materiales" rows="3" placeholder="Ej. Papel de colores, tijeras..."></textarea>
         </div>
-
-        <!-- Pestaña 2: Asistencia -->
         <div id="tab-asistencia" class="tab-content">
             <label>Registro de Asistencia:</label>
-            <textarea id="m-asistencia" rows="6" placeholder="Escribe los nombres de los niños que asistieron..."></textarea>
+            <textarea id="m-asistencia" rows="6" placeholder="Escribe los nombres de los niños..."></textarea>
         </div>
-
-        <button class="btn-primary" onclick="guardarRegistro()">Guardar Información</button>
+        <button class="btn-primary" onclick="guardarRegistroPrincipal()">Guardar Información</button>
         <button class="btn-back" onclick="irAPantalla('seleccionar-domingo')">Atrás</button>
     </div>
 
-    <!-- LOGIN LÍDER -->
+    <!-- ==================== PANTALLA COMPARTIDA: LOGIN LÍDER ==================== -->
     <div id="login-lider" class="pantalla">
-        <h2 style="text-align: center;">Acceso Líder</h2>
+        <h2 id="titulo-login-lider" style="text-align: center;">Acceso Líder</h2>
         <p id="error-login" class="mensaje-error" style="text-align: center;">Contraseña incorrecta</p>
         <label>Contraseña:</label>
         <input type="password" id="password-lider" placeholder="Ingresa la contraseña">
@@ -268,35 +215,134 @@
         <button class="btn-back" onclick="irAPantalla('inicio')">Volver al inicio</button>
     </div>
 
-    <!-- PANEL LÍDER -->
-    <div id="panel-lider" class="pantalla">
-        <h2>Panel Administrativo</h2>
-        
+    <!-- ==================== FLUJO PRINCIPAL (LÍDER) ==================== -->
+    <div id="panel-lider-principal" class="pantalla">
+        <h2>Reportes de Clases</h2>
         <label>Filtrar por Domingo:</label>
-        <select id="l-domingo" onchange="mostrarResumenLider()">
-            <option value="">Seleccione el domingo...</option>
-            <option value="1 de noviembre">1 de noviembre</option>
-            <option value="8 de noviembre">8 de noviembre</option>
-            <option value="15 de noviembre">15 de noviembre</option>
-            <option value="22 de noviembre">22 de noviembre</option>
-            <option value="29 de noviembre">29 de noviembre</option>
-            <option value="6 de diciembre">6 de diciembre</option>
-            <option value="13 de diciembre">13 de diciembre</option>
-            <option value="20 de diciembre">20 de diciembre</option>
-            <option value="27 de diciembre">27 de diciembre</option>
-        </select>
-
+        <select id="l-domingo" onchange="mostrarResumenPrincipal()"></select>
         <label>Filtrar por Grupo:</label>
-        <select id="l-grupo" onchange="mostrarResumenLider()">
+        <select id="l-grupo" onchange="mostrarResumenPrincipal()">
             <option value="">Seleccione un grupo...</option>
             <option value="Exploradores">Exploradores</option>
             <option value="Semillas del Reino">Semillas del Reino</option>
             <option value="Vencedores">Vencedores</option>
             <option value="Visionarios">Visionarios</option>
         </select>
+        <div id="contenedor-resumen" style="margin-top: 25px; text-align: left;"></div>
+        <button class="btn-back" onclick="irAPantalla('inicio')">Cerrar Sesión</button>
+    </div>
 
-        <div id="contenedor-resumen" style="margin-top: 25px; text-align: left;">
-            <p style="color: #6b7280; font-size: 0.9rem; text-align: center;">Selecciona filtros para ver los reportes.</p>
+    <!-- ==================== SECCIÓN SEMÁFORO ==================== -->
+    <div id="semaforo-rol" class="pantalla">
+        <h2 style="text-align: center;">🚥 Semáforo</h2>
+        <p class="subtitle">Selecciona tu rol para el semáforo</p>
+        <div style="display: flex; gap: 15px;">
+            <button class="btn-maestro" onclick="irAPantalla('semaforo-maestro-grupo')">Maestro</button>
+            <button class="btn-lider" onclick="prepararLogin('semaforo')">Líder</button>
+        </div>
+        <button class="btn-back" onclick="irAPantalla('inicio')">Volver al inicio</button>
+    </div>
+
+    <div id="semaforo-maestro-grupo" class="pantalla">
+        <h2>🚥 ¿De qué grupo eres?</h2>
+        <div class="grid-grupos">
+            <button class="btn-outline btn-outline-exploradores" onclick="seleccionarGrupoSemaforo('Exploradores')">Exploradores</button>
+            <button class="btn-outline btn-outline-semillas" onclick="seleccionarGrupoSemaforo('Semillas del Reino')">Semillas del Reino</button>
+            <button class="btn-outline btn-outline-vencedores" onclick="seleccionarGrupoSemaforo('Vencedores')">Vencedores</button>
+            <button class="btn-outline btn-outline-visionarios" onclick="seleccionarGrupoSemaforo('Visionarios')">Visionarios</button>
+        </div>
+        <button class="btn-back" onclick="irAPantalla('semaforo-rol')">Atrás</button>
+    </div>
+
+    <div id="semaforo-maestro-domingo" class="pantalla">
+        <h2>🚥 Selecciona el Domingo</h2>
+        <p class="subtitle" id="titulo-semaforo-grupo"></p>
+        <div id="contenedor-domingos-semaforo" class="grid-domingos"></div>
+        <button class="btn-back" onclick="irAPantalla('semaforo-maestro-grupo')">Atrás</button>
+    </div>
+
+    <div id="semaforo-maestro-form" class="pantalla">
+        <h2>🚥 Gestión Semáforo</h2>
+        <p class="subtitle" id="titulo-semaforo-resumen" style="color: #5c6bc0; font-weight: bold;"></p>
+        
+        <div style="background: #f9fafb; padding: 15px; border-radius: 12px; border: 1px solid #e5e7eb; margin-bottom: 20px;">
+            <label>Nombre del Niño:</label>
+            <input type="text" id="sem-nombre" placeholder="Ej. Juan Pérez">
+            <label>Estado (Castigo):</label>
+            <select id="sem-estado">
+                <option value="Amarillo">🟡 Amarillo (Advertencia)</option>
+                <option value="Rojo">🔴 Rojo (A la iglesia)</option>
+            </select>
+            <button class="btn-primary" style="margin-top: 10px;" onclick="agregarNinoSemaforo()">Registrar Niño</button>
+        </div>
+
+        <h3 style="font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 5px;">Lista del Día</h3>
+        <div id="lista-semaforo-dia" style="text-align: left; margin-bottom: 20px; max-height: 200px; overflow-y: auto;">
+            <!-- Se llena con JS -->
+        </div>
+
+        <button class="btn-back" onclick="irAPantalla('semaforo-maestro-domingo')">Atrás</button>
+    </div>
+
+    <div id="panel-lider-semaforo" class="pantalla">
+        <h2>🚥 Reporte de Semáforo</h2>
+        <label>Selecciona el Domingo a revisar:</label>
+        <select id="l-domingo-semaforo" onchange="mostrarResumenSemaforoLider()"></select>
+        
+        <div id="contenedor-resumen-semaforo" style="margin-top: 25px; text-align: left;">
+            <p style="color: #6b7280; font-size: 0.9rem; text-align: center;">Selecciona el domingo para ver los niños en amarillo y rojo.</p>
+        </div>
+        <button class="btn-back" onclick="irAPantalla('inicio')">Cerrar Sesión</button>
+    </div>
+
+
+    <!-- ==================== SECCIÓN REFRIGERIO ==================== -->
+    <div id="refrigerio-rol" class="pantalla">
+        <h2 style="text-align: center;">🥪 Refrigerio</h2>
+        <p class="subtitle">Selecciona tu rol para asistencia rápida</p>
+        <div style="display: flex; gap: 15px;">
+            <button class="btn-maestro" onclick="irAPantalla('refrigerio-maestro-grupo')">Maestro</button>
+            <button class="btn-lider" onclick="prepararLogin('refrigerio')">Líder</button>
+        </div>
+        <button class="btn-back" onclick="irAPantalla('inicio')">Volver al inicio</button>
+    </div>
+
+    <div id="refrigerio-maestro-grupo" class="pantalla">
+        <h2>🥪 ¿De qué grupo eres?</h2>
+        <div class="grid-grupos">
+            <button class="btn-outline btn-outline-exploradores" onclick="seleccionarGrupoRefrigerio('Exploradores')">Exploradores</button>
+            <button class="btn-outline btn-outline-semillas" onclick="seleccionarGrupoRefrigerio('Semillas del Reino')">Semillas del Reino</button>
+            <button class="btn-outline btn-outline-vencedores" onclick="seleccionarGrupoRefrigerio('Vencedores')">Vencedores</button>
+            <button class="btn-outline btn-outline-visionarios" onclick="seleccionarGrupoRefrigerio('Visionarios')">Visionarios</button>
+        </div>
+        <button class="btn-back" onclick="irAPantalla('refrigerio-rol')">Atrás</button>
+    </div>
+
+    <div id="refrigerio-maestro-domingo" class="pantalla">
+        <h2>🥪 Selecciona el Domingo</h2>
+        <p class="subtitle" id="titulo-refrigerio-grupo"></p>
+        <div id="contenedor-domingos-refrigerio" class="grid-domingos"></div>
+        <button class="btn-back" onclick="irAPantalla('refrigerio-maestro-grupo')">Atrás</button>
+    </div>
+
+    <div id="refrigerio-maestro-form" class="pantalla">
+        <h2>🥪 Asistencia Rápida</h2>
+        <p class="subtitle" id="titulo-refrigerio-resumen" style="color: #5c6bc0; font-weight: bold;"></p>
+        
+        <label style="text-align: center; font-size: 1.1rem;">Cantidad de niños presentes:</label>
+        <input type="number" id="ref-cantidad" placeholder="Ej. 25" style="text-align: center; font-size: 1.5rem; font-weight: bold;">
+        
+        <button class="btn-primary" onclick="guardarRefrigerio()">Actualizar Cantidad</button>
+        <button class="btn-back" onclick="irAPantalla('refrigerio-maestro-domingo')">Atrás</button>
+    </div>
+
+    <div id="panel-lider-refrigerio" class="pantalla">
+        <h2>🥪 Total para Refrigerios</h2>
+        <label>Selecciona el Domingo:</label>
+        <select id="l-domingo-refrigerio" onchange="mostrarResumenRefrigerioLider()"></select>
+        
+        <div id="contenedor-resumen-refrigerio" style="margin-top: 25px; text-align: left;">
+            <p style="color: #6b7280; font-size: 0.9rem; text-align: center;">Selecciona el domingo para ver los totales de todos los grupos.</p>
         </div>
         <button class="btn-back" onclick="irAPantalla('inicio')">Cerrar Sesión</button>
     </div>
@@ -304,132 +350,128 @@
 </div>
 
 <script>
-    // Variables de estado
-    let seleccionActual = {
-        grupo: '',
-        subgrupo: '',
-        domingo: ''
-    };
+    // Variables Globales
+    let selPrincipal = { grupo: '', subgrupo: '', domingo: '' };
+    let selSemaforo = { grupo: '', domingo: '' };
+    let selRefrigerio = { grupo: '', domingo: '' };
+    let destinoLider = 'principal'; // Puede ser: principal, semaforo, refrigerio
 
-    // Calendario Intercalado Nov-Dic
-    const domingos = {
+    const domingosSubgrupos = {
         "Grupo A": ["1 de noviembre", "15 de noviembre", "29 de noviembre", "13 de diciembre", "27 de diciembre"],
         "Grupo B": ["8 de noviembre", "22 de noviembre", "6 de diciembre", "20 de diciembre"]
     };
 
+    const todosLosDomingos = [
+        "1 de noviembre", "8 de noviembre", "15 de noviembre", 
+        "22 de noviembre", "29 de noviembre", "6 de diciembre", 
+        "13 de diciembre", "20 de diciembre", "27 de diciembre"
+    ];
+
+    // ================= FUNCIONES GENERALES =================
     function irAPantalla(idPantalla) {
         document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
         document.getElementById(idPantalla).classList.add('activa');
         if(idPantalla === 'inicio') document.getElementById('password-lider').value = '';
     }
 
-    function seleccionarGrupo(grupo) {
-        seleccionActual.grupo = grupo;
-        document.getElementById('titulo-grupo-seleccionado').innerText = grupo;
-        irAPantalla('seleccionar-subgrupo');
-    }
-
-    function seleccionarSubgrupo(subgrupo) {
-        seleccionActual.subgrupo = subgrupo;
-        document.getElementById('info-subgrupo-seleccionado').innerText = `${seleccionActual.grupo} - ${subgrupo}`;
-        generarBotonesDomingo();
-        irAPantalla('seleccionar-domingo');
-    }
-
-    function generarBotonesDomingo() {
-        const contenedor = document.getElementById('contenedor-domingos');
-        contenedor.innerHTML = '';
-        
-        const fechas = domingos[seleccionActual.subgrupo];
-        
-        fechas.forEach(fecha => {
-            const btn = document.createElement('button');
-            btn.className = 'btn-domingo';
-            btn.innerText = fecha;
-            btn.onclick = () => abrirFormularioClase(fecha);
-            contenedor.appendChild(btn);
-        });
-    }
-
-    function abrirFormularioClase(fecha) {
-        seleccionActual.domingo = fecha;
-        document.getElementById('titulo-resumen-clase').innerText = `${seleccionActual.grupo} - ${seleccionActual.subgrupo} (${fecha})`;
-        
-        document.getElementById('m-titulo').value = '';
-        document.getElementById('m-descripcion').value = '';
-        document.getElementById('m-materiales').value = '';
-        document.getElementById('m-asistencia').value = '';
-        
-        // Resetear a pestaña principal
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('activa'));
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('activa'));
-        document.querySelector('.tab').classList.add('activa');
-        document.getElementById('tab-materiales').classList.add('activa');
-
-        irAPantalla('formulario-clase');
-    }
-
     function cambiarPestana(idPestana, btnElement) {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('activa'));
         document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('activa'));
-        
         btnElement.classList.add('activa');
         document.getElementById(idPestana).classList.add('activa');
     }
 
-    function guardarRegistro() {
-        const titulo = document.getElementById('m-titulo').value;
-        const descripcion = document.getElementById('m-descripcion').value;
-        const materiales = document.getElementById('m-materiales').value;
-        const asistencia = document.getElementById('m-asistencia').value;
+    // Inicializar Selects de domingos para líderes
+    function poblarSelectsDomingos() {
+        const selects = ['l-domingo', 'l-domingo-semaforo', 'l-domingo-refrigerio'];
+        selects.forEach(id => {
+            const select = document.getElementById(id);
+            select.innerHTML = '<option value="">Seleccione el domingo...</option>';
+            todosLosDomingos.forEach(d => {
+                select.innerHTML += `<option value="${d}">${d}</option>`;
+            });
+        });
+    }
+    poblarSelectsDomingos();
 
-        if (!titulo || !materiales || !asistencia) {
-            alert("Por favor, llena la temática, los materiales y la asistencia.");
-            return;
-        }
-
-        const registro = {
-            grupo: seleccionActual.grupo,
-            subgrupo: seleccionActual.subgrupo,
-            domingo: seleccionActual.domingo,
-            titulo, descripcion, materiales, asistencia
+    // ================= LOGIN LÍDER =================
+    function prepararLogin(destino) {
+        destinoLider = destino;
+        const titulos = {
+            'principal': 'Acceso Líder Principal',
+            'semaforo': 'Líder - Semáforo',
+            'refrigerio': 'Líder - Refrigerio'
         };
-
-        let DB = JSON.parse(localStorage.getItem('iglesiaDB_v2')) || [];
-        DB.push(registro);
-        localStorage.setItem('iglesiaDB_v2', JSON.stringify(DB));
-
-        alert("¡Información guardada con éxito!");
-        irAPantalla('inicio');
+        document.getElementById('titulo-login-lider').innerText = titulos[destino];
+        document.getElementById('error-login').style.display = 'none';
+        document.getElementById('password-lider').value = '';
+        irAPantalla('login-lider');
     }
 
     function verificarPassword() {
         if (document.getElementById('password-lider').value === 'Ingri') {
             document.getElementById('error-login').style.display = 'none';
-            irAPantalla('panel-lider');
-            mostrarResumenLider();
+            if (destinoLider === 'principal') irAPantalla('panel-lider-principal');
+            if (destinoLider === 'semaforo') irAPantalla('panel-lider-semaforo');
+            if (destinoLider === 'refrigerio') irAPantalla('panel-lider-refrigerio');
         } else {
             document.getElementById('error-login').style.display = 'block';
         }
     }
 
-    function mostrarResumenLider() {
+    // ================= FLUJO PRINCIPAL =================
+    function seleccionarGrupo(grupo) {
+        selPrincipal.grupo = grupo;
+        document.getElementById('titulo-grupo-seleccionado').innerText = grupo;
+        irAPantalla('seleccionar-subgrupo');
+    }
+
+    function seleccionarSubgrupo(subgrupo) {
+        selPrincipal.subgrupo = subgrupo;
+        document.getElementById('info-subgrupo-seleccionado').innerText = `${selPrincipal.grupo} - ${subgrupo}`;
+        const contenedor = document.getElementById('contenedor-domingos');
+        contenedor.innerHTML = '';
+        domingosSubgrupos[subgrupo].forEach(fecha => {
+            contenedor.innerHTML += `<button class="btn-domingo" onclick="abrirFormularioClase('${fecha}')">${fecha}</button>`;
+        });
+        irAPantalla('seleccionar-domingo');
+    }
+
+    function abrirFormularioClase(fecha) {
+        selPrincipal.domingo = fecha;
+        document.getElementById('titulo-resumen-clase').innerText = `${selPrincipal.grupo} - ${selPrincipal.subgrupo} (${fecha})`;
+        document.getElementById('m-titulo').value = ''; document.getElementById('m-descripcion').value = '';
+        document.getElementById('m-materiales').value = ''; document.getElementById('m-asistencia').value = '';
+        document.querySelector('.tab').click(); // Volver a pestaña 1
+        irAPantalla('formulario-clase');
+    }
+
+    function guardarRegistroPrincipal() {
+        const titulo = document.getElementById('m-titulo').value;
+        const descripcion = document.getElementById('m-descripcion').value;
+        const materiales = document.getElementById('m-materiales').value;
+        const asistencia = document.getElementById('m-asistencia').value;
+
+        if (!titulo || !materiales || !asistencia) return alert("Llena la temática, materiales y asistencia.");
+
+        let DB = JSON.parse(localStorage.getItem('iglesiaDB_v2')) || [];
+        DB.push({ ...selPrincipal, titulo, descripcion, materiales, asistencia });
+        localStorage.setItem('iglesiaDB_v2', JSON.stringify(DB));
+        alert("¡Información guardada con éxito!");
+        irAPantalla('inicio');
+    }
+
+    function mostrarResumenPrincipal() {
         const d = document.getElementById('l-domingo').value;
         const g = document.getElementById('l-grupo').value;
         const contenedor = document.getElementById('contenedor-resumen');
 
-        if (!d || !g) {
-            contenedor.innerHTML = '<p style="text-align: center; color: #6b7280;">Selecciona domingo y grupo para ver datos.</p>';
-            return;
-        }
+        if (!d || !g) return contenedor.innerHTML = '<p style="text-align:center; color:#6b7280;">Selecciona domingo y grupo.</p>';
 
         let DB = JSON.parse(localStorage.getItem('iglesiaDB_v2')) || [];
         let filtrados = DB.filter(r => r.domingo === d && r.grupo === g);
 
-        if (filtrados.length === 0) {
-            contenedor.innerHTML = '<p style="color:red; text-align: center;">No hay registros cargados aún.</p>';
-            return;
-        }
+        if (filtrados.length === 0) return contenedor.innerHTML = '<p style="color:red; text-align:center;">No hay registros cargados aún.</p>';
 
         let html = '';
         filtrados.forEach(r => {
@@ -437,12 +479,167 @@
                 <div class="registro-card">
                     <h4>${r.subgrupo} - ${r.titulo}</h4>
                     <p><strong>Descripción:</strong> ${r.descripcion}</p>
-                    <p><strong>Materiales solicitados:</strong> ${r.materiales}</p>
-                    <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+                    <p><strong>Materiales:</strong> ${r.materiales}</p>
+                    <hr style="border-top: 1px solid #eee; margin: 10px 0;">
                     <p><strong>Asistencia:</strong><br>${r.asistencia.replace(/\n/g, '<br>')}</p>
-                </div>
-            `;
+                </div>`;
         });
+        contenedor.innerHTML = html;
+    }
+
+    // ================= FLUJO SEMÁFORO =================
+    function seleccionarGrupoSemaforo(grupo) {
+        selSemaforo.grupo = grupo;
+        document.getElementById('titulo-semaforo-grupo').innerText = grupo;
+        const contenedor = document.getElementById('contenedor-domingos-semaforo');
+        contenedor.innerHTML = '';
+        todosLosDomingos.forEach(fecha => {
+            contenedor.innerHTML += `<button class="btn-domingo" onclick="abrirFormularioSemaforo('${fecha}')">${fecha}</button>`;
+        });
+        irAPantalla('semaforo-maestro-domingo');
+    }
+
+    function abrirFormularioSemaforo(fecha) {
+        selSemaforo.domingo = fecha;
+        document.getElementById('titulo-semaforo-resumen').innerText = `${selSemaforo.grupo} - ${fecha}`;
+        document.getElementById('sem-nombre').value = '';
+        cargarListaSemaforoDelDia();
+        irAPantalla('semaforo-maestro-form');
+    }
+
+    function agregarNinoSemaforo() {
+        const nombre = document.getElementById('sem-nombre').value;
+        const estado = document.getElementById('sem-estado').value;
+        if(!nombre) return alert("Escribe el nombre del niño");
+
+        let DB = JSON.parse(localStorage.getItem('semaforoDB')) || [];
+        DB.push({ grupo: selSemaforo.grupo, domingo: selSemaforo.domingo, nombre, estado });
+        localStorage.setItem('semaforoDB', JSON.stringify(DB));
+        
+        document.getElementById('sem-nombre').value = '';
+        cargarListaSemaforoDelDia();
+    }
+
+    function cargarListaSemaforoDelDia() {
+        const contenedor = document.getElementById('lista-semaforo-dia');
+        let DB = JSON.parse(localStorage.getItem('semaforoDB')) || [];
+        let filtrados = DB.filter(r => r.grupo === selSemaforo.grupo && r.domingo === selSemaforo.domingo);
+        
+        if(filtrados.length === 0) {
+            contenedor.innerHTML = '<p style="color:#9ca3af; font-size:0.9rem;">Ningún niño registrado hoy.</p>';
+            return;
+        }
+
+        let html = '';
+        filtrados.forEach(nino => {
+            let claseBadge = nino.estado === 'Amarillo' ? 'badge-amarillo' : 'badge-rojo';
+            html += `<div class="semaforo-item">
+                        <span>${nino.nombre}</span>
+                        <span class="${claseBadge}">${nino.estado}</span>
+                     </div>`;
+        });
+        contenedor.innerHTML = html;
+    }
+
+    function mostrarResumenSemaforoLider() {
+        const d = document.getElementById('l-domingo-semaforo').value;
+        const contenedor = document.getElementById('contenedor-resumen-semaforo');
+        if (!d) return contenedor.innerHTML = '<p style="text-align:center; color:#6b7280;">Selecciona el domingo.</p>';
+
+        let DB = JSON.parse(localStorage.getItem('semaforoDB')) || [];
+        let filtrados = DB.filter(r => r.domingo === d);
+
+        if (filtrados.length === 0) return contenedor.innerHTML = '<p style="color:red; text-align:center;">Nadie en el semáforo este domingo.</p>';
+
+        // Agrupar por grupo para mostrar ordenado
+        const grupos = ["Semillas del Reino", "Exploradores", "Vencedores", "Visionarios"];
+        let html = '';
+        
+        grupos.forEach(grupo => {
+            let ninosGrupo = filtrados.filter(r => r.grupo === grupo);
+            if(ninosGrupo.length > 0) {
+                html += `<div class="registro-card">
+                            <h4>${grupo}</h4>`;
+                ninosGrupo.forEach(nino => {
+                    let claseBadge = nino.estado === 'Amarillo' ? 'badge-amarillo' : 'badge-rojo';
+                    html += `<div class="semaforo-item" style="border:none; padding:5px 0;">
+                                <span>${nino.nombre}</span>
+                                <span class="${claseBadge}">${nino.estado}</span>
+                             </div>`;
+                });
+                html += `</div>`;
+            }
+        });
+        contenedor.innerHTML = html;
+    }
+
+    // ================= FLUJO REFRIGERIO =================
+    function seleccionarGrupoRefrigerio(grupo) {
+        selRefrigerio.grupo = grupo;
+        document.getElementById('titulo-refrigerio-grupo').innerText = grupo;
+        const contenedor = document.getElementById('contenedor-domingos-refrigerio');
+        contenedor.innerHTML = '';
+        todosLosDomingos.forEach(fecha => {
+            contenedor.innerHTML += `<button class="btn-domingo" onclick="abrirFormularioRefrigerio('${fecha}')">${fecha}</button>`;
+        });
+        irAPantalla('refrigerio-maestro-domingo');
+    }
+
+    function abrirFormularioRefrigerio(fecha) {
+        selRefrigerio.domingo = fecha;
+        document.getElementById('titulo-refrigerio-resumen').innerText = `${selRefrigerio.grupo} - ${fecha}`;
+        
+        // Cargar dato si ya existe
+        let DB = JSON.parse(localStorage.getItem('refrigerioDB')) || [];
+        let registro = DB.find(r => r.grupo === selRefrigerio.grupo && r.domingo === fecha);
+        document.getElementById('ref-cantidad').value = registro ? registro.cantidad : '';
+        
+        irAPantalla('refrigerio-maestro-form');
+    }
+
+    function guardarRefrigerio() {
+        const cantidad = document.getElementById('ref-cantidad').value;
+        if(!cantidad) return alert("Ingresa la cantidad de niños.");
+
+        let DB = JSON.parse(localStorage.getItem('refrigerioDB')) || [];
+        // Eliminar el registro previo de ese grupo y domingo si existe
+        DB = DB.filter(r => !(r.grupo === selRefrigerio.grupo && r.domingo === selRefrigerio.domingo));
+        // Guardar el nuevo valor
+        DB.push({ grupo: selRefrigerio.grupo, domingo: selRefrigerio.domingo, cantidad: parseInt(cantidad) });
+        
+        localStorage.setItem('refrigerioDB', JSON.stringify(DB));
+        alert("¡Cantidad actualizada en tiempo real!");
+        irAPantalla('refrigerio-rol');
+    }
+
+    function mostrarResumenRefrigerioLider() {
+        const d = document.getElementById('l-domingo-refrigerio').value;
+        const contenedor = document.getElementById('contenedor-resumen-refrigerio');
+        if (!d) return contenedor.innerHTML = '<p style="text-align:center; color:#6b7280;">Selecciona el domingo.</p>';
+
+        let DB = JSON.parse(localStorage.getItem('refrigerioDB')) || [];
+        let filtrados = DB.filter(r => r.domingo === d);
+
+        if (filtrados.length === 0) return contenedor.innerHTML = '<p style="color:red; text-align:center;">Aún no han registrado niños para refrigerios.</p>';
+
+        let totalGeneral = 0;
+        let html = '<div class="registro-card" style="border-left-color: #f48fb1;">';
+        
+        filtrados.forEach(r => {
+            html += `<div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:1.1rem;">
+                        <span>${r.grupo}</span>
+                        <strong>${r.cantidad} niños</strong>
+                     </div>`;
+            totalGeneral += r.cantidad;
+        });
+
+        html += `<hr style="border-top: 2px solid #eee; margin: 15px 0;">
+                 <div style="display:flex; justify-content:space-between; font-size:1.3rem; color:#5c6bc0; font-weight:bold;">
+                    <span>TOTAL DEL DÍA:</span>
+                    <span>${totalGeneral}</span>
+                 </div>
+                 </div>`;
+                 
         contenedor.innerHTML = html;
     }
 </script>
